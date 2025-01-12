@@ -16,6 +16,12 @@ bun run index.ts
 
 This project was created using `bun init` in bun v1.1.34. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
 
+To run tests:
+
+```bash
+bun test
+```
+
 ## Comments
 
 I probably went a little overboard with this, and planned for
@@ -59,4 +65,3 @@ are removed once after they trigger.
 
 There is little to no error handling, I leave that as an exercise
 to the reader.
-
