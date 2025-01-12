@@ -2,7 +2,7 @@ import { Temperature, type TemperatureType } from "./temperature";
 
 export type TemperatureSourceType = "test" | "file" | "hardware" | "network";
 
-export class TempSourceError extends Error {}
+export class TempSourceError extends Error { }
 
 /**
  * TemperatureSource is an abstraction of how to get
@@ -36,8 +36,8 @@ export class TestTemperatureSource implements TemperatureSource {
   readonly samplingRate: number = 1; // in Hz
   readonly sourceType: TemperatureSourceType = "test";
   isConnected: boolean = false;
-  protected errorCallback: (error: TempSourceError) => void = () => {};
-  protected disconnectCallback: () => void = () => {};
+  protected errorCallback: (error: TempSourceError) => void = () => { };
+  protected disconnectCallback: () => void = () => { };
   protected sourceData: () => number;
   protected currentValue: number = 0;
   protected timer: NodeJS.Timer | null = null;
@@ -84,7 +84,7 @@ export class TestTemperatureSource implements TemperatureSource {
   }
 
   async getValue(): Promise<Temperature> {
-    return new Temperature(this.sourceData(), this.format);
+    return new Temperature(this.currentValue, this.format);
   }
 }
 
